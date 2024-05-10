@@ -1,7 +1,9 @@
+import AllQueriesCard from "../components/AllQueriesCard";
+
 const AllQueries = () => {
   return (
-    <div>
-      <h1>AllQueries</h1>
+    <div className="container px-6 py-10 mx-auto">
+      <AllQueriesCard />
     </div>
   );
 };

@@ -1,7 +1,11 @@
+import Banner from "../components/Banner";
 const MyQueries = () => {
   return (
     <div>
-      <h1>kl..........</h1>
+      {/* Query Banner */}
+      <Banner />
+      {/* My Queries */}
+      <h1>My Queries</h1>
     </div>
   );
 };
