@@ -4,7 +4,7 @@ import Navbar from "../share/Navbar";
 
 const Main = () => {
   return (
-    <div>
+    <div className="px-4">
       {/* Navbar */}
       <Navbar />
 

@@ -1,6 +1,54 @@
 import { BiSolidCommentAdd } from "react-icons/bi";
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import toast from "react-hot-toast";
+import useAuth from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const AddQuery = () => {
+  const { user } = useAuth();
+  console.log(user);
+  const navigate = useNavigate();
+  const baseUrl = import.meta.env.VITE_API_URL;
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = async (data) => {
+    const {
+      productName,
+      brandName,
+      query_title,
+      product_img_URl,
+      description,
+    } = data;
+    console.log(data);
+    const qData = {
+      product_name: productName,
+      brand_name: brandName,
+      query_title: query_title,
+      product_img_URl: product_img_URl,
+      description: description,
+      user: {
+        email: user?.email,
+        name: user?.displayName,
+        photo: user?.photoURL,
+      },
+      bid_count: 0,
+    };
+
+    try {
+      const { queryData } = await axios.post(`${baseUrl}/query`, qData, user);
+      console.log(queryData);
+      toast.success("Query Successfully!");
+      navigate("/MyQueries");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div>
       <div className="flex justify-center items-center min-h-[calc(100vh-306px)] my-12">
@@ -9,7 +57,7 @@ const AddQuery = () => {
             Add Query:
           </h2>
 
-          <form>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
               <div>
                 <label className="text-gray-700 " htmlFor="product_name">
@@ -20,7 +68,11 @@ const AddQuery = () => {
                   name="product_name"
                   type="text"
                   className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                  {...register("productName", { required: true })}
                 />
+                {errors.productName && (
+                  <span className="text-red-400">This field is required</span>
+                )}
               </div>
 
               <div>
@@ -32,7 +84,11 @@ const AddQuery = () => {
                   name="brand_name"
                   type="text"
                   className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                  {...register("brandName", { required: true })}
                 />
+                {errors.brandName && (
+                  <span className="text-red-400">This field is required</span>
+                )}
               </div>
 
               <div>
@@ -44,7 +100,11 @@ const AddQuery = () => {
                   name="query_title"
                   type="text"
                   className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                  {...register("query_title", { required: true })}
                 />
+                {errors.query_title && (
+                  <span className="text-red-400">This field is required</span>
+                )}
               </div>
 
               <div className="flex flex-col gap-2 ">
@@ -61,8 +121,14 @@ const AddQuery = () => {
                   id="name"
                   name="name"
                   type="text"
+                  disabled
+                  defaultValue={user?.displayName}
                   className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                  {...register("name")}
                 />
+                {errors.name && (
+                  <span className="text-red-400">This field is required</span>
+                )}
               </div>
 
               <div>
@@ -74,8 +140,13 @@ const AddQuery = () => {
                   type="email"
                   name="email"
                   disabled
+                  defaultValue={user?.email}
                   className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                  {...register("email")}
                 />
+                {errors.email && (
+                  <span className="text-red-400">This field is required</span>
+                )}
               </div>
 
               <div>
@@ -86,8 +157,14 @@ const AddQuery = () => {
                   id="photoUrl"
                   name="photoUrl"
                   type="text"
+                  disabled
+                  defaultValue={user?.photoURL}
                   className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+                  {...register("photoUrl")}
                 />
+                {errors.photoUrl && (
+                  <span className="text-red-400">This field is required</span>
+                )}
               </div>
             </div>
 
@@ -100,7 +177,11 @@ const AddQuery = () => {
                 name="product_img_URl"
                 type="text"
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
-              ></input>
+                {...register("product_img_URl", { required: true })}
+              />
+              {errors.product_img_URl && (
+                <span className="text-red-400">This field is required</span>
+              )}
             </div>
 
             <div className="flex flex-col gap-2 mt-4">
@@ -111,7 +192,11 @@ const AddQuery = () => {
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
                 name="description"
                 id="description"
-              ></textarea>
+                {...register("description", { required: true })}
+              />
+              {errors.description && (
+                <span className="text-red-400">This field is required</span>
+              )}
             </div>
 
             <div className="flex justify-between mt-6">
