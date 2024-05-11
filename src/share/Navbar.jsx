@@ -12,14 +12,41 @@ const Navbar = () => {
           <span className="font-bold">EcoFy</span>
         </div>
       </div>
+
       <div className="flex-none">
+        <header className="p-4 dark:bg-gray-100 dark:text-gray-800">
+          <div className="container flex justify-between h-16 mx-auto md:justify-center md:space-x-8">
+            <ul className="items-stretch hidden space-x-3 md:flex">
+              <Link to="/" className="flex">
+                <a
+                  rel="noopener noreferrer"
+                  href="#"
+                  className="flex items-center px-4 -mb-1 border-b-2 dark:border-"
+                >
+                  Home
+                </a>
+              </Link>
+              <li className="flex">
+                <Link
+                  to="/AllQueries"
+                  rel="noopener noreferrer"
+                  href="#"
+                  className="flex items-center px-4 -mb-1 border-b-2 dark:border-"
+                >
+                  All Queries
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </header>
         <ul className="menu menu-horizontal">
-          <li>
+          {/* <li>
+          <Link to="/" rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 dark:border-">He</Link>
             <Link to="/">Home</Link>
           </li>
           <li>
             <Link to="/AllQueries">All Queries</Link>
-          </li>
+          </li> */}
 
           {!user && (
             <div className="dropdown dropdown-end">

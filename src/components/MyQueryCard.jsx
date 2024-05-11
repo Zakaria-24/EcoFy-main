@@ -1,14 +1,17 @@
+/* eslint-disable react/prop-types */
 import { FcViewDetails } from "react-icons/fc";
 import { MdOutlineUpdate } from "react-icons/md";
 import { AiTwotoneDelete } from "react-icons/ai";
-const MyQueryCard = () => {
+const MyQueryCard = ({ myQuery }) => {
+  const { query_title, product_img_URl, description,dateTime, name, photo } = myQuery;
+  // console.log(myQuery);
   return (
     <div>
       <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-50 dark:text-gray-800">
         <div className="flex space-x-4">
           <img
             alt=""
-            src="https://source.unsplash.com/100x100/?portrait"
+            src={photo}
             className="object-cover w-12 h-12 rounded-full shadow dark:bg-gray-500"
           />
           <div className="flex flex-col space-y-1">
@@ -17,25 +20,21 @@ const MyQueryCard = () => {
               href="#"
               className="text-sm font-semibold"
             >
-              Leroy Jenkins
+              {name}
             </a>
-            <span className="text-xs dark:text-gray-600">4 hours ago</span>
+            <span className="text-xs dark:text-gray-600">
+              {dateTime.slice(0,16)}
+            </span>
           </div>
         </div>
         <div>
           <img
-            src="https://source.unsplash.com/random/100x100/?5"
+            src={product_img_URl}
             alt=""
-            className="object-cover w-full mb-4 h-60 sm:h-96 dark:bg-gray-500"
+            className="object-cover w-full mb-4 h-full dark:bg-gray-500"
           />
-          <h2 className="mb-1 text-xl font-semibold">
-            Nam cu platonem posidonium sanctus debitis te
-          </h2>
-          <p className="text-sm dark:text-gray-600">
-            Eu qualisque aliquando mel, id lorem detraxit nec, ad elit minimum
-            pri. Illum ipsum detracto ne cum. Mundi nemore te ius, vim ad illud
-            atqui apeirian...
-          </p>
+          <h2 className="mb-1 text-xl font-semibold">{query_title}</h2>
+          <p className="text-sm dark:text-gray-600">{description}</p>
         </div>
         <div className="flex flex-wrap justify-between">
           <div className="space-x-2">

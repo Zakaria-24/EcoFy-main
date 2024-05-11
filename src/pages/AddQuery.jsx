@@ -1,13 +1,13 @@
-import { BiSolidCommentAdd } from "react-icons/bi";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
 import useAuth from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
+import "react-datepicker/dist/react-datepicker.css";
+
 const AddQuery = () => {
   const { user } = useAuth();
-  console.log(user);
   const navigate = useNavigate();
   const baseUrl = import.meta.env.VITE_API_URL;
   const {
@@ -24,23 +24,22 @@ const AddQuery = () => {
       product_img_URl,
       description,
     } = data;
-    console.log(data);
     const qData = {
       product_name: productName,
       brand_name: brandName,
       query_title: query_title,
       product_img_URl: product_img_URl,
       description: description,
-      user: {
-        email: user?.email,
-        name: user?.displayName,
-        photo: user?.photoURL,
-      },
-      bid_count: 0,
+      dateTime: new Date(Date.now()),
+      email: user?.email,
+      name: user?.displayName,
+      photo: user?.photoURL,
+      recommendationCount: 0,
     };
+    console.log(qData);
 
     try {
-      const { queryData } = await axios.post(`${baseUrl}/query`, qData, user);
+      const { queryData } = await axios.post(`${baseUrl}/query`, qData);
       console.log(queryData);
       toast.success("Query Successfully!");
       navigate("/MyQueries");
@@ -107,30 +106,6 @@ const AddQuery = () => {
                 )}
               </div>
 
-              <div className="flex flex-col gap-2 ">
-                <label className="text-gray-700"> Current Date and Time</label>
-
-                {/* Date Picker Input Field */}
-              </div>
-
-              <div>
-                <label className="text-gray-700 " htmlFor="name">
-                  Name
-                </label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  disabled
-                  defaultValue={user?.displayName}
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
-                  {...register("name")}
-                />
-                {errors.name && (
-                  <span className="text-red-400">This field is required</span>
-                )}
-              </div>
-
               <div>
                 <label className="text-gray-700 " htmlFor="emailAddress">
                   Email Address
@@ -145,24 +120,6 @@ const AddQuery = () => {
                   {...register("email")}
                 />
                 {errors.email && (
-                  <span className="text-red-400">This field is required</span>
-                )}
-              </div>
-
-              <div>
-                <label className="text-gray-700 " htmlFor="photoUrl">
-                  Image
-                </label>
-                <input
-                  id="photoUrl"
-                  name="photoUrl"
-                  type="text"
-                  disabled
-                  defaultValue={user?.photoURL}
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
-                  {...register("photoUrl")}
-                />
-                {errors.photoUrl && (
                   <span className="text-red-400">This field is required</span>
                 )}
               </div>
@@ -200,18 +157,7 @@ const AddQuery = () => {
             </div>
 
             <div className="flex justify-between mt-6">
-              <div className="flex flex-col gap-2 my-6">
-                <label className="text-gray-700">
-                  <div className="flex items-center justify-end gap-2 border-sky-300 border-2  ">
-                    <BiSolidCommentAdd />
-                    <span>0</span>
-                  </div>
-                </label>
-
-                {/* Date Picker Input Field */}
-              </div>
-
-              <button className="px-10 leading-5 text-white transition-colors duration-300 transhtmlForm bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
+              <button className=" w-full px-10 py-4 leading-5 text-white transition-colors duration-300 transhtmlForm bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
                 Add Query
               </button>
             </div>
