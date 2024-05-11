@@ -7,13 +7,18 @@ const Banner = () => {
         <div className="container mx-auto">
           <div className="flex flex-col lg:flex-row items-center justify-between">
             <h2 className="text-center text-6xl tracking-tighter font-bold">
-              Up to
-              <br className="sm:hidden" />
-              50% Off
+              All of <br className="sm:hidden" />
+              {""}
+              <span>My Query</span>
             </h2>
             <div className="space-x-2 text-center py-2 lg:py-0">
-              <span>Plus free shipping! Use code:</span>
-              <span className="font-bold text-lg">MAMBA</span>
+              <span>Is there any </span>
+              <span className="font-bold text-lg">QUERY??</span>
+
+              {/* <div className=" flex items-center">
+                
+              
+              </div> */}
             </div>
             <Link
               to="/addQuery"
@@ -26,29 +31,6 @@ const Banner = () => {
           </div>
         </div>
       </div>
-
-      {/* <div
-        className="hero h-96"
-        style={{
-          backgroundImage:
-            "url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)",
-        }}
-      >
-        <div className="hero-overlay bg-opacity-60"></div>
-        <div className="hero-content text-center text-neutral-content">
-          <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-            <p className="mb-5">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
-            <Link to="/addQuery" className="btn btn-primary">
-              Add Query
-            </Link>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };

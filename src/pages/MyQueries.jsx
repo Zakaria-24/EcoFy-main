@@ -7,7 +7,7 @@ import MyQueryCard from "../components/MyQueryCard";
 const MyQueries = () => {
   const baseUrl = import.meta.env.VITE_API_URL;
   const { user } = useAuth();
-  const { data: myQueries = [], isLoading } = useQuery({
+  const { data: myQueries = [], isLoading, refetch } = useQuery({
     queryKey: ["myQuery"],
     queryFn: () => getMyQueries(),
   });
@@ -15,7 +15,7 @@ const MyQueries = () => {
 
   const getMyQueries = async () => {
     const { data } = await axios(`${baseUrl}/query/${user?.email}`);
-    console.log(data);
+    // console.log(data);
     return data;
   };
   if (isLoading) return <h1>data is loading..........</h1>;
@@ -27,7 +27,7 @@ const MyQueries = () => {
       {/* My Queries */}
       <div className="container px-6 py-10 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {myQueries.map((myQuery) => (
-           <MyQueryCard key={myQuery._id} myQuery={myQuery}/>
+           <MyQueryCard key={myQuery._id} myQuery={myQuery} refetch={refetch}/>
         ))}
       </div>
     </div>
