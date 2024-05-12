@@ -4,7 +4,7 @@ import RecommendationFormCard from "../components/RecommendationFormCard";
 const QueryDetails = () => {
   const navigate = useNavigate();
   const details = useLoaderData();
-  console.log(details);
+  // console.log(details);
   const {
     // _id,
     name,
@@ -21,6 +21,7 @@ const QueryDetails = () => {
   return (
     <div className="container px-10 py-10 mx-auto">
       {/* details */}
+      <>
       <div className="flex items-center justify-center font-bold text-2xl mb-4">
         <h1> View Query Details</h1>
         <p></p>
@@ -95,16 +96,20 @@ const QueryDetails = () => {
           </div>
         </div>
       </div>
+      </>
 
       {/* REcommandation form */}
+      <>
       <div className="flex items-center justify-center font-bold text-2xl mt-16">
         <h1>Recommend for better ONE</h1>
         <p></p>
       </div>
       <RecommendationFormCard />
+      </>
 
       {/* All Recommendations for that particular query */}
 
+      <>
       <div className="flex items-center justify-center font-bold text-2xl mt-16">
         <h1>Read all Recommend</h1>
         <p></p>
@@ -151,6 +156,7 @@ const QueryDetails = () => {
           </div>
         </div>
       </div>
+      </>
     </div>
   );
 };
