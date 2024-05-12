@@ -9,12 +9,13 @@ import "swiper/css/navigation";
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
-import bgimg1 from "../../../public/EcoFy.png";
-import bgimg2 from "../../../public/EcoFy.png";
-import bgimg3 from "../../../public/EcoFy.png";
+
 import Slider from "./Slider";
 
 const Carousel = () => {
+  const bgimg1 = "https://i.ibb.co/3hQKs6s/OIP-1.jpg";
+  const bgimg2 = "https://i.ibb.co/j50wG4P/2.jpg";
+  const bgimg3 = "https://i.ibb.co/bvPb5Zd/pexels-marcelochagas-2183773.jpg";
   return (
     <div className="container px-6 py-10 mx-auto">
       <Swiper
@@ -35,21 +36,23 @@ const Carousel = () => {
         <SwiperSlide>
           <Slider
             image={bgimg1}
-            text="Get Your Web Development Projects Done in minutes"
+            text="Expand Your Horizons. Find Better Alternatives for Every Need."
           />
         </SwiperSlide>
         <SwiperSlide>
           <Slider
             image={bgimg2}
-            text="Get Your Graphics Design Projects Done in minutes"
+            text="Unlock Endless Possibilities. Discover Better Alternatives Today."
           />
         </SwiperSlide>
         <SwiperSlide>
           <Slider
             image={bgimg3}
-            text="Start Your Digital Marketing Campaigns up n running"
+            text="Capture the Moment. Explore Innovative Camera Alternatives."
           />
         </SwiperSlide>
+       
+        
       </Swiper>
     </div>
   );

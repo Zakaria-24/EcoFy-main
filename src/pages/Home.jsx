@@ -1,4 +1,4 @@
-import TinyBanner from "../components/TinyBanner";
+// import TinyBanner from "../components/TinyBanner";
 import Carousel from "../components/header/Carousel";
 
 const Home = () => {
@@ -8,9 +8,9 @@ const Home = () => {
       <Carousel />
 
       {/* Home Banner */}
-      <div className="container px-6 py-10 mx-auto">
+      {/* <div className="container px-6 py-10 mx-auto">
         <TinyBanner />
-      </div>
+      </div> */}
 
       {/* /Recent Quesries */}
       <div>
