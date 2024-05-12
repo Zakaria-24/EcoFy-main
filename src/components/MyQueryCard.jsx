@@ -77,7 +77,7 @@ const MyQueryCard = ({ myQuery, refetch }) => {
           <div className="space-x-2 flex items-center">
             {/* details */}
             <Link
-              to="/myQueryDetails"
+              to={`/queryDetails/${myQuery._id}`}
               type="button"
               title="My Query Details"
               // className="flex items-center justify-center"

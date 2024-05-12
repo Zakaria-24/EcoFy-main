@@ -71,12 +71,14 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/queryDetails",
+        path: "/queryDetails/:id",
         element: (
           <PrivateRoute>
             <QueryDetails />
           </PrivateRoute>
         ),
+        loader: ({ params }) => 
+          fetch(`${import.meta.env.VITE_API_URL}/details/${params.id}`),
       },
       {
         path: "/RecommendationForMe",

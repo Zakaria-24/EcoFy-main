@@ -65,7 +65,8 @@ const AllQueriesCard = ({ query }) => {
              
             </div>
             <Link
-              to="/queryDetails"
+            // to= "/queryDetails"
+              to={`/queryDetails/${query._id}`}
               type="button"
               title="Recommendation: Query Details"
               className="flex items-center justify-center"
