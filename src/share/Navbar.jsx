@@ -11,7 +11,7 @@ const Navbar = () => {
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
   );
 
-  const handleToggle = (e) => {
+  const handleThemeToggle = (e) => {
     if (e.target.checked) {
       setTheme("dark");
     } else {
@@ -45,7 +45,7 @@ const Navbar = () => {
             <input
               // id="theme"
               type="checkbox"
-              onChange={handleToggle}
+              onChange={handleThemeToggle}
               checked={theme === "light" ? false : true}
             />
 
