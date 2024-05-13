@@ -7,7 +7,7 @@ import Login from "../pages/authentication/Login";
 import Register from "../pages/authentication/Register";
 import MyQueries from "./../pages/MyQueries";
 import RecommendationForMe from "./../pages/RecommendationForMe";
-// import MyRecommendation from "./../pages/MyRecommendation";
+import MyRecommendation from "./../pages/MyRecommendation";
 import PrivateRoute from "./PrivateRoute";
 import AddQuery from "../pages/AddQuery";
 import QueryDetails from "../pages/QueryDetails";
@@ -68,13 +68,33 @@ const router = createBrowserRouter([
             <QueryDetails />
           </PrivateRoute>
         ),
-        loader: ({ params }) =>
-          fetch(`${import.meta.env.VITE_API_URL}/details/${params.id}`),
+        // loader: ({ params }) =>
+        //   fetch(`${import.meta.env.VITE_API_URL}/details/${params.id}`),
+
+        loader: async ({ params }) => {
+          const res = await fetch(
+            `${import.meta.env.VITE_API_URL}/details/${params.id}`
+          );
+          const queryDetails = res.json();
+
+          const rec = await fetch(
+            `${import.meta.env.VITE_API_URL}/queryRelatedRecommendaton/${
+              params.id
+            }`
+          );
+          const recommendatoin = rec.json();
+
+          return { queryDetails: queryDetails, recommendatoin: recommendatoin };
+        },
       },
-      // {
-      //   path: "/MyRecommendation",
-      //   element: <MyRecommendation />,
-      //   },
+
+      {
+        path: "/MyRecommendation",
+        element: <MyRecommendation />,
+        
+        // loader: ({ params }) =>
+        //   fetch(`${import.meta.env.VITE_API_URL}/myRecommendations/${params.id}`),
+      },
       {
         path: "/RecommendationForMe",
         element: <RecommendationForMe />,

@@ -15,7 +15,7 @@ const UpdateMyQuery = () => {
     description,
   } = query;
   // console.log(myQuery);
-  console.log(_id, product_name);
+  // console.log(_id, product_name);
 
   const { user } = useAuth();
   const handleFormSubmit = async (e) => {
@@ -39,7 +39,7 @@ const UpdateMyQuery = () => {
       photo: user?.photoURL,
       recommendationCount: 0,
     };
-    console.log(queryData);
+    // console.log(queryData);
 
     try {
       const { data } = await axios.put(
