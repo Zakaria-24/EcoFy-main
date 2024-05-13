@@ -39,7 +39,12 @@ const AddQuery = () => {
     console.log(qData);
 
     try {
-      const { queryData } = await axios.post(`${baseUrl}/query`, qData);
+      const { queryData } = await axios.post(
+        `${baseUrl}/query`,
+        qData,
+        // for secure my personal data by using token
+        { withcredentials: true }
+      );
       console.log(queryData);
       toast.success("Query Successfully!");
       navigate("/MyQueries");

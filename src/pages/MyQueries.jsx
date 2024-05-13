@@ -15,7 +15,10 @@ const MyQueries = () => {
   // console.log(myQueries, isLoading);
 
   const getMyQueries = async () => {
-    const { data } = await axios(`${baseUrl}/query/${user?.email}`);
+    const { data } = await axios(`${baseUrl}/query/${user?.email}`,
+    // for secure my personal data by using token
+      {withCredentials: true}
+    );
     // console.log(data);
     return data;
   };

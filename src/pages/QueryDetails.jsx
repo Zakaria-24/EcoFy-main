@@ -10,7 +10,7 @@ const QueryDetails = () => {
   // const { user } = useAuth();
   const navigate = useNavigate();
   const details = useLoaderData();
-  console.log(details)
+  console.log([details])
   const {
     name,
     photo,
@@ -21,7 +21,7 @@ const QueryDetails = () => {
     description,
     recommendationCount,
     dateTime,
-  } = details;
+  } = [details];
 
 
   // all query related recommendations
