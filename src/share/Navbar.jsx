@@ -5,7 +5,7 @@ import { useContext } from "react";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   return (
-    <div className="navbar bg-base-100 shadow-lg container px-4 mx-auto">
+    <div className="navbar bg-base-100 container pt-6 px-4 mx-auto">
       <div className="flex-1">
         <div className="flex gap-2 items-center">
           <Link to="/">

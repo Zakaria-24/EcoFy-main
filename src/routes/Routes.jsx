@@ -7,7 +7,7 @@ import Login from "../pages/authentication/Login";
 import Register from "../pages/authentication/Register";
 import MyQueries from "./../pages/MyQueries";
 import RecommendationForMe from "./../pages/RecommendationForMe";
-import MyRecommendation from "./../pages/MyRecommendation";
+// import MyRecommendation from "./../pages/MyRecommendation";
 import PrivateRoute from "./PrivateRoute";
 import AddQuery from "../pages/AddQuery";
 import QueryDetails from "../pages/QueryDetails";
@@ -71,10 +71,10 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`${import.meta.env.VITE_API_URL}/details/${params.id}`),
       },
-      {
-        path: "/MyRecommendation",
-        element: <MyRecommendation />,
-        },
+      // {
+      //   path: "/MyRecommendation",
+      //   element: <MyRecommendation />,
+      //   },
       {
         path: "/RecommendationForMe",
         element: <RecommendationForMe />,
