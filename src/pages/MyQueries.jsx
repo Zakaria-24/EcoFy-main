@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import useAuth from "../hooks/useAuth";
 import MyQueryCard from "../components/MyQueryCard";
+import Loading from "./Loading";
 
 const MyQueries = () => {
   const baseUrl = import.meta.env.VITE_API_URL;
@@ -18,7 +19,7 @@ const MyQueries = () => {
     // console.log(data);
     return data;
   };
-  if (isLoading) return <h1>data is loading..........</h1>;
+  if (isLoading) return <Loading/>;
 
   return (
     <div>

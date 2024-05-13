@@ -11,7 +11,6 @@ import MyRecommendation from "./../pages/MyRecommendation";
 import PrivateRoute from "./PrivateRoute";
 import AddQuery from "../pages/AddQuery";
 import QueryDetails from "../pages/QueryDetails";
-import MyQueryDetails from "../pages/DetailsMyQuery";
 import UpdateMyQuery from "../pages/UpdateMyQuery";
 
 const router = createBrowserRouter([
@@ -55,14 +54,6 @@ const router = createBrowserRouter([
           fetch(`${import.meta.env.VITE_API_URL}/UpdateQuery/${params.id}`),
       },
       {
-        path: "/myQueryDetails",
-        element: (
-          <PrivateRoute>
-            <MyQueryDetails />
-          </PrivateRoute>
-        ),
-      },
-      {
         path: "/addQuery",
         element: (
           <PrivateRoute>
@@ -77,16 +68,16 @@ const router = createBrowserRouter([
             <QueryDetails />
           </PrivateRoute>
         ),
-        loader: ({ params }) => 
+        loader: ({ params }) =>
           fetch(`${import.meta.env.VITE_API_URL}/details/${params.id}`),
-      },
-      {
-        path: "/RecommendationForMe",
-        element: <RecommendationForMe />,
       },
       {
         path: "/MyRecommendation",
         element: <MyRecommendation />,
+        },
+      {
+        path: "/RecommendationForMe",
+        element: <RecommendationForMe />,
       },
     ],
   },

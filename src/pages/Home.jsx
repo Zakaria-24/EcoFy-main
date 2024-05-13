@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import Carousel from "../components/header/Carousel";
 import axios from "axios";
 import AllQueriesCard from "../components/AllQueriesCard";
+import Loading from "./Loading";
 
 const Home = () => {
 
@@ -11,14 +12,14 @@ const Home = () => {
     queryKey: ["queryData"],
     queryFn: () => getQueries(),
   });
-  console.log(queries, isLoading);
+  // console.log(queries, isLoading);
 
   const getQueries = async () => {
     const { data } = await axios(`${baseUrl}/queries`);
     // console.log(data);
     return data;
   };
-  if (isLoading) return <h1>data is loading..........</h1>;
+  if (isLoading) return <Loading/>;
 
   return (
     <div>
