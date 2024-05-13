@@ -18,7 +18,7 @@ const MyRecommendation = () => {
     queryFn: async () => await getRecommendation(),
   });
   // console.log(recommendations);
-  console.log(user);
+  // console.log(user);
   const getRecommendation = async () => {
     const { data } = await axios(
       `${baseUrl}/myRecommendations/${user?.email}`
@@ -56,7 +56,7 @@ const MyRecommendation = () => {
     <div className=" py-10">
       <div className="container border-2 border-sky-200  p-2 mx-auto sm:p-4 dark:text-gray-800">
         <h2 className="mb-4 text-2xl font-semibold leading-tight underline">
-          My Recommendation:
+          My Recommendation:{recommendations?.length}
         </h2>
         <div className="flex flex-col overflow-x-auto text-xs">
           <div className="flex text-left dark:bg-gray-300">

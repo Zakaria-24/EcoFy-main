@@ -43,8 +43,8 @@ const Navbar = () => {
 
       <div className="flex-none">
         <ul className="menu menu-horizontal">
-          <li>
-            <label id="theme" className="swap swap-rotate mr-2">
+          <li className="hover:text-[#44ced5] border-2 border-[#44ced5] mr-2 rounded-lg">
+            <label id="theme" className="swap swap-rotate">
               {/* this hidden checkbox controls the state */}
               <input
                 // id="theme"
@@ -79,10 +79,10 @@ const Navbar = () => {
               </svg>
             </label>
           </li>
-          <li className="hover:bg-[#9AD0D3] rounded-lg font-bold">
+          <li className="hover:text-[#44ced5] border-2 border-[#44ced5] mr-1 rounded-lg text-xl font-bold">
             <Link to="/">Home</Link>
           </li>
-          <li className="hover:bg-[#9AD0D3] rounded-lg mr-2 font-bold">
+          <li className="hover:text-[#44ced5] border-2 text-xl border-[#44ced5] rounded-lg mr-1 font-bold hover:bg-base-300 block text-center">
             <Link to="/AllQueries">All Queries</Link>
           </li>
 
@@ -91,7 +91,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/login"
-                  className="bg-[#9AD0D3] hover:bg-base-300 block text-center font-semibold"
+                  className="bg-[#44ced5] text-xl border-2 border-[#44ced5] hover:bg-base-300 block text-center font-bold"
                 >
                   Login
                 </Link>
@@ -117,16 +117,16 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#fbffff] rounded-box w-52"
             >
-              <li className="hover:bg-[#9AD0D3] rounded-lg">
+              <li className="hover:bg-[#9AD0D3] hover:text-black border-2 mb-1 border-[#44ced5] font-bold rounded-lg">
                 <Link to="/MyQueries">My Queries</Link>
               </li>
 
-              <li className="hover:bg-[#9AD0D3] rounded-lg">
+              <li className="hover:bg-[#9AD0D3] hover:text-black border-2 mb-1 border-[#44ced5] font-bold rounded-lg">
                 <Link to="/MyRecommendation">My Recommendation</Link>
               </li>
-              <li className="hover:bg-[#9AD0D3] rounded-lg">
+              <li className="hover:bg-[#9AD0D3] hover:text-black border-2 mb-1 border-[#44ced5] font-bold rounded-lg">
                 <Link to="/RecommendationForMe" className="justify-between">
                   Recommendation For Me
                 </Link>
@@ -135,7 +135,7 @@ const Navbar = () => {
                 <NavLink
                   to="/login"
                   onClick={logOut}
-                  className="bg-[#9AD0D3] block text-center hover:bg-base-300"
+                  className="bg-[#44ced5] text-xl border-2 border-[#44ced5] font-bold block text-center hover:bg-base-300"
                 >
                   Logout
                 </NavLink>

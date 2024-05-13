@@ -1,16 +1,11 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import RecommendationFormCard from "../components/RecommendationFormCard";
-// import axios from "axios";
-// import { useQuery } from "@tanstack/react-query";
-// import Loading from "./Loading";
-// import useAuth from "../hooks/useAuth";
 
 const QueryDetails = () => {
-  
   // const { user } = useAuth();
   const navigate = useNavigate();
   const details = useLoaderData();
-  console.log([details])
+  console.log([details]);
   const {
     name,
     photo,
@@ -22,26 +17,7 @@ const QueryDetails = () => {
     recommendationCount,
     dateTime,
   } = [details];
-
-
-  // all query related recommendations
-  // const baseUrl = import.meta.env.VITE_API_URL;
-  // const { data: recommendations = [], isLoading } = useQuery({
-  //   queryKey: ["recommendationData"],
-  //   enabled: !!user?.email,
-  //   queryFn: async () => await getQueryRelatedRecommendation(),
-  // });
-  // console.log(recommendations, isLoading);
-
-  // Use axios
-  // const getQueryRelatedRecommendation = async () => {
-  //   const { data } = await axios(
-  //     `${baseUrl}/queryRelatedRecommendaton/${}`
-  //   );
-  //   console.log(data);
-  //   return data;
-  // };
-  // if (isLoading) return <Loading />;
+  
 
   return (
     <div className="container px-10 py-10 mx-auto">

@@ -151,8 +151,9 @@ const RecommendationFormCard = () => {
               </div>
               <div>
                 <button
-                  type="submit"
-                  className="px-4 py-2 rounded-xl text-xl font-bold text-white bg-sky-400 hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-600 dark:bg-violet-700 dark:text-white"
+                disabled= {email === user?.email}
+                className="disabled:cursor-not-allowed px-4 py-2 rounded-xl text-xl font-bold text-white bg-sky-400 hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-600 dark:bg-violet-700 dark:text-white"
+                type="submit"
                 >
                   Recommend
                 </button>
