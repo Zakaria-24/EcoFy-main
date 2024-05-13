@@ -14,13 +14,15 @@ const MyRecommendation = () => {
     refetch,
   } = useQuery({
     queryKey: ["recommendationData"],
-    enabled: !!user?.email,
+    // enabled: !!user?.email,
     queryFn: async () => await getRecommendation(),
   });
-  console.log(recommendations, isLoading);
-
+  // console.log(recommendations);
+  console.log(user);
   const getRecommendation = async () => {
-    const { data } = await axios(`${baseUrl}/myRecommendations/recommenderEmail`);
+    const { data } = await axios(
+      `${baseUrl}/myRecommendations/${user?.email}`
+    );
     // console.log(data);
     return data;
   };

@@ -43,7 +43,7 @@ const Navbar = () => {
 
       <div className="flex-none">
         <ul className="menu menu-horizontal">
-          <li className="hover:bg-[#9AD0D3] rounded-lg font-bold">
+          <li>
             <label id="theme" className="swap swap-rotate mr-2">
               {/* this hidden checkbox controls the state */}
               <input
