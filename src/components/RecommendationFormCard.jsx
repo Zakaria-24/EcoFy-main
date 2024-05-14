@@ -4,9 +4,10 @@ import toast from "react-hot-toast";
 import useAuth from "../hooks/useAuth";
 import { useLoaderData, useNavigate } from "react-router-dom";
 
-const RecommendationFormCard = () => {
+// eslint-disable-next-line react/prop-types
+const RecommendationFormCard = ({queryId}) => {
   const detailsOfQuery = useLoaderData();
-  console.log(detailsOfQuery.queryDetails);
+  // console.log(detailsOfQuery.queryDetails);
   const {
     _id,
     name,
@@ -15,7 +16,7 @@ const RecommendationFormCard = () => {
     query_title,
     dateTime,
   } = detailsOfQuery.queryDetails;
-  console.log(_id, name, email, product_name, query_title, dateTime);  
+  // console.log(_id, name, email, product_name, query_title, dateTime);  
 
   const { user } = useAuth();
   // console.log(user);
@@ -54,7 +55,7 @@ const RecommendationFormCard = () => {
     // console.log(recommendationData);
 
     try {
-      const { R_Data } = await axios.post(`${baseUrl}/recommendation`, recommendationData);
+      const { R_Data } = await axios.post(`${baseUrl}/recommendation/${queryId}`, recommendationData);
       console.log(R_Data);
       toast.success("Recommendation Successful!");
       navigate("/AllQueries");

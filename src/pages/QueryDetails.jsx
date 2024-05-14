@@ -1,4 +1,4 @@
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import RecommendationFormCard from "../components/RecommendationFormCard";
 
 const QueryDetails = () => {
@@ -6,6 +6,8 @@ const QueryDetails = () => {
   const navigate = useNavigate();
   const details = useLoaderData();
   // console.log(details);
+  
+  const {id: queryId} = useParams();
   const {
     name,
     photo,
@@ -103,7 +105,7 @@ const QueryDetails = () => {
           <h1>Recommend for better ONE</h1>
           <p></p>
         </div>
-        <RecommendationFormCard />
+        <RecommendationFormCard queryId={queryId} />
       </>
 
       {/* All Recommendations/comment for that particular query */}
@@ -113,12 +115,12 @@ const QueryDetails = () => {
           <p></p>
         </div>
 
-        <div className=" grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
+        <div className=" grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-6 mt-10">
           {details.recommendatoin?.map((comment) => {
             return (
               <div
                 key={comment._id}
-                className=" mt-10 flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg  dark:bg-gray-50 dark:text-gray-800"
+                className="bg-cyan-50 gap-8 flex flex-col max-w-lg p-6 overflow-hidden rounded-lg  dark:bg-gray-50 dark:text-gray-800"
               >
                 <div className="flex space-x-4">
                   <img
@@ -144,7 +146,7 @@ const QueryDetails = () => {
                   <img
                     src={comment?.Recommended_Image_URL}
                     alt=""
-                    className="object-cover object-center w-full rounded-md h-32 dark:bg-gray-500"
+                    className="object-cover object-center w-full rounded-md h-36 dark:bg-gray-500"
                   />
                   <div className="mt-6 mb-2">
                     {/* <span className="block text-xs font-medium tracking-widest uppercase dark:text-violet-600">

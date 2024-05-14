@@ -20,9 +20,7 @@ const MyRecommendation = () => {
   // console.log(recommendations);
   // console.log(user);
   const getRecommendation = async () => {
-    const { data } = await axios(
-      `${baseUrl}/myRecommendations/${user?.email}`
-    );
+    const { data } = await axios(`${baseUrl}/myRecommendations/${user?.email}`);
     // console.log(data);
     return data;
   };
@@ -78,7 +76,7 @@ const MyRecommendation = () => {
             return (
               <div
                 key={recommendation._id}
-                className="flex border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50"
+                className="  flex border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50"
               >
                 <div className="w-32 px-2 py-3 sm:p-3 font-bold">
                   <h1>{recommendation?.product_name}</h1>

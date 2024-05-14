@@ -26,12 +26,13 @@ const AllQueries = () => {
     e.preventDefault();
     const text = e.target.search.value;
     setSearch(text);
+    
   };
 
   console.log(search);
 
   return (
-    <div className=" bg-sky-100 my-8 ">
+    <div className=" my-8 px-32">
       <div className="px-10 flex justify-center items-center ">
         <form onSubmit={handleSearch}>
           <div className="flex p-1 overflow-hidden border rounded-lg    focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">

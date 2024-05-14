@@ -45,12 +45,12 @@ const AllQueriesCard = ({ query }) => {
           alt=""
           className="object-cover object-center w-full h-48 dark:bg-gray-500"
         />
-        <div className="p-3">
+        <div className="">
           <div className="flex flex-wrap items-center pt-3 pb-1">
             <div className="card-body">
               <h2 className="card-title text-neutral">
                {query_title}
-                <div className="badge badge-secondary">{recommendationCount}</div>
+                <div className="badge badge-accent">{recommendationCount}</div>
               </h2>
               <p>{description}</p>
               <div className="card-actions justify-end">
