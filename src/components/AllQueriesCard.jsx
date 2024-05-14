@@ -17,8 +17,8 @@ const AllQueriesCard = ({ query }) => {
   } = query;
  
   return (
-    <div>
-      <div className="rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800">
+    <>
+      <div className="rounded-md bg-cyan-50 shadow-lg dark:bg-gray-50 dark:text-gray-800">
         <div className="flex items-center justify-between p-3">
         <div className="flex space-x-4">
           <img
@@ -43,7 +43,7 @@ const AllQueriesCard = ({ query }) => {
         <img
           src={product_img_URl}
           alt=""
-          className="object-cover object-center w-full h-full dark:bg-gray-500"
+          className="object-cover object-center w-full h-48 dark:bg-gray-500"
         />
         <div className="p-3">
           <div className="flex flex-wrap items-center pt-3 pb-1">
@@ -76,7 +76,7 @@ const AllQueriesCard = ({ query }) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

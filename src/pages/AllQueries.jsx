@@ -5,7 +5,7 @@ import Loading from "./Loading";
 import { useState } from "react";
 
 const AllQueries = () => {
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
   const baseUrl = import.meta.env.VITE_API_URL;
   const { data: queries = [], isLoading } = useQuery({
     queryKey: ["queryData"],
@@ -31,24 +31,24 @@ const AllQueries = () => {
   console.log(search);
 
   return (
-    <>
-    <div className="px-6  pt-10 w-96">
-    <form onSubmit={handleSearch}>
-            <div className='flex p-1 overflow-hidden border rounded-lg    focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300'>
-              <input
-                className='px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent'
-                type='text'
-                name='search'
-                placeholder='Enter Product Name'
-                aria-label='Enter Product Name'
-              />
+    <div className=" bg-sky-100 my-8 ">
+      <div className="px-10 flex justify-center items-center ">
+        <form onSubmit={handleSearch}>
+          <div className="flex p-1 overflow-hidden border rounded-lg    focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
+            <input
+              className="px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent"
+              type="text"
+              name="search"
+              placeholder="Enter Product Name"
+              aria-label="Enter Product Name"
+            />
 
-              <button className='px-1 md:px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none'>
-                Search
-              </button>
-            </div>
-          </form>
-    </div>
+            <button className=" px-1 md:px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none">
+              Search
+            </button>
+          </div>
+        </form>
+      </div>
       {/* <div className="px-6  pt-10">
         <fieldset className="w-full space-y-1 dark:text-gray-800">
           <label htmlFor="Search" className="hidden">
@@ -81,13 +81,13 @@ const AllQueries = () => {
         </fieldset>
       </div> */}
 
-      <div className=" px-6 py-10 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div className=" px-10 py-10 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {queries?.map((query) => {
           return <AllQueriesCard key={query._id} query={query} />;
         })}
         {/* <AllQueriesCard /> */}
       </div>
-    </>
+    </div>
   );
 };
 
