@@ -1,5 +1,4 @@
 import { Link, useNavigate } from "react-router-dom";
-import image from "../../assets/Authentication Logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import toast from "react-hot-toast";
@@ -74,11 +73,7 @@ const Register = () => {
       <div className="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl ">
         <div className="w-full px-6 py-8 md:px-8 lg:w-1/2">
           <div className="flex justify-center mx-auto">
-            <img
-              className="w-auto h-7 sm:h-8"
-              src="../../../public/EcoFy.png"
-              alt=""
-            />
+            
           </div>
 
           <p className="mt-3 text-xl text-center text-gray-600 ">
@@ -215,7 +210,7 @@ const Register = () => {
         <div
           className="hidden bg-cover bg-center lg:block lg:w-full"
           style={{
-            backgroundImage: `url(${image})`,
+            backgroundImage: `url("https://i.ibb.co/dB60hnG/Authentication-Logo.png")`,
           }}
         ></div>
       </div>

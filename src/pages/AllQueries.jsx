@@ -1,25 +1,34 @@
 import AllQueriesCard from "../components/AllQueriesCard";
 // import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-// import Loading from "./Loading";
+import Loading from "./Loading";
 import { useEffect, useState } from "react";
+import useAuth from "../hooks/useAuth";
 
 const AllQueries = () => {
+  const { loading } = useAuth();
+  const [gridCols, setGridCols] = useState(3);
+  // console.log(gridCols);
+
   const [search, setSearch] = useState("");
-const [ data, setData] = useState([]);
+  const [data, setData] = useState([]);
 
   const baseUrl = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
-    const getData = async () => {
+
+  const getData = async () => {
+    try {
       const { data } = await axios(`${baseUrl}/queries?search=${search}`);
-      setData(data)
-    };
-    getData();
-  }, [baseUrl, search]);
+      setData(data);
+    } catch (error) {
+      // console.error("Error fetching data:", error);
+    }
+  };
+  getData();
+}, [baseUrl, search]);
 
-  console.log(data);
-
+  // console.log(data);
 
 
   // const { data: queries = [], isLoading } = useQuery({
@@ -42,9 +51,13 @@ const [ data, setData] = useState([]);
     const text = e.target.search.value;
     setSearch(text);
   };
+  // console.log(search);
 
-  console.log(search);
-
+  const handleGridLayout = (cols) => {
+    setGridCols(cols);
+  };
+  
+  if (loading) return <Loading />;
   return (
     <div className=" my-8 px-32">
       <div className="px-10 flex justify-center items-center ">
@@ -64,46 +77,24 @@ const [ data, setData] = useState([]);
           </div>
         </form>
 
-        <button className="btn btn-outline btn-accent mr-1">Grid_2</button>
-        <button className="btn btn-outline btn-accent">Grid_3</button>
+        <button
+          onClick={() => handleGridLayout(2)}
+          className="btn btn-outline btn-accent mr-1 "
+        >
+          Columns_2
+        </button>
+        <button
+          onClick={() => handleGridLayout(3)}
+          className="btn btn-outline btn-accent"
+        >
+          Columns_3
+        </button>
       </div>
-      {/* <div className="px-6  pt-10">
-        <fieldset className="w-full space-y-1 dark:text-gray-800">
-          <label htmlFor="Search" className="hidden">
-            Search
-          </label>
-          <div className="relative">
-            <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-              <button
-                onClick={handleSearch}
-                type="button"
-                title="search"
-                className="p-1 focus:outline-none focus:ring"
-              >
-                <svg
-                  fill="currentColor"
-                  viewBox="0 0 512 512"
-                  className="w-4 h-4 dark:text-gray-800"
-                >
-                  <path d="M479.6,399.716l-81.084-81.084-62.368-25.767A175.014,175.014,0,0,0,368,192c0-97.047-78.953-176-176-176S16,94.953,16,192,94.953,368,192,368a175.034,175.034,0,0,0,101.619-32.377l25.7,62.2L400.4,478.911a56,56,0,1,0,79.2-79.195ZM48,192c0-79.4,64.6-144,144-144s144,64.6,144,144S271.4,336,192,336,48,271.4,48,192ZM456.971,456.284a24.028,24.028,0,0,1-33.942,0l-76.572-76.572-23.894-57.835L380.4,345.771l76.573,76.572A24.028,24.028,0,0,1,456.971,456.284Z"></path>
-                </svg>
-              </button>
-            </span>
-            <input
-              type="search"
-              name="Search"
-              placeholder="Search..."
-              className="font-bold w-40 py-2 pl-10 text-sm rounded-md sm:w-auto focus:outline-none dark:bg-gray-100 dark:text-gray-800 focus:dark:bg-gray-50 focus:dark:border-violet-600"
-            />
-          </div>
-        </fieldset>
-      </div> */}
 
-      <div className=" px-10 py-10 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {data?.map((query) => {
+      <div className={`px-10 py-10 mx-auto grid grid-cols-${gridCols} gap-8`}>
+        {data.map((query) => {
           return <AllQueriesCard key={query._id} query={query} />;
         })}
-        {/* <AllQueriesCard /> */}
       </div>
     </div>
   );

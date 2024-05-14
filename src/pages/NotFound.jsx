@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import bgImg from "../assets/NotFound.png";
 import { FaArrowLeftLong } from "react-icons/fa6";
 
 const NotFound = () => {
@@ -8,7 +7,7 @@ const NotFound = () => {
       <div
         className="container min-h-screen px-6 py-12 mx-auto flex items-end justify-end lg:gap-12"
         style={{
-          backgroundImage: `url(${bgImg})`,
+          backgroundImage: `url("https://i.ibb.co/XpsWdn1/NotFound.png")`,
         }}
       >
         <Link

@@ -3,9 +3,6 @@ const Section_1 = () => {
     <div className=" container mx-auto my-16 bg-sky-100">
       <section className="dark:bg-gray-100 dark:text-gray-800">
         <div className="container flex flex-col justify-center p-4 mx-auto md:p-8">
-          <p className="p-2 text-sm font-medium tracking-wider text-center uppercase">
-            How it works
-          </p>
           <h2 className="mb-12 text-4xl font-bold leading-none text-center sm:text-5xl">
             Frequently Asked Questions
           </h2>

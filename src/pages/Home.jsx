@@ -5,6 +5,7 @@ import axios from "axios";
 import AllQueriesCard from "../components/AllQueriesCard";
 import Loading from "./Loading";
 import Section_1 from "../components/ExtraSection/Section_1";
+import CustomerReviews from "../components/ExtraSection/CustomerReviews";
 
 const Home = () => {
   const baseUrl = import.meta.env.VITE_API_URL;
@@ -47,7 +48,7 @@ const Home = () => {
       <Section_1/>
 
       {/* Section_2 */}
-
+<CustomerReviews/>
 
     </div>
   );
