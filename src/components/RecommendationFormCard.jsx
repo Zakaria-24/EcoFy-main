@@ -6,7 +6,7 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 
 const RecommendationFormCard = () => {
   const detailsOfQuery = useLoaderData();
-  // console.log(detailsOfQuery);
+  console.log(detailsOfQuery.queryDetails);
   const {
     _id,
     name,
@@ -14,7 +14,8 @@ const RecommendationFormCard = () => {
     product_name,
     query_title,
     dateTime,
-  } = detailsOfQuery;
+  } = detailsOfQuery.queryDetails;
+  console.log(_id, name, email, product_name, query_title, dateTime);  
 
   const { user } = useAuth();
   // console.log(user);
@@ -48,6 +49,7 @@ const RecommendationFormCard = () => {
       name,
       recommenderEmail: user?.email,
       recommenderName: user?.displayName,
+      recommenderPhoto: user?.photoURL,
     };
     // console.log(recommendationData);
 

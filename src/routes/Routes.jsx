@@ -75,14 +75,14 @@ const router = createBrowserRouter([
           const res = await fetch(
             `${import.meta.env.VITE_API_URL}/details/${params.id}`
           );
-          const queryDetails = res.json();
+          const queryDetails = await res.json();
 
           const rec = await fetch(
             `${import.meta.env.VITE_API_URL}/queryRelatedRecommendaton/${
               params.id
             }`
           );
-          const recommendatoin = rec.json();
+          const recommendatoin = await rec.json();
 
           return { queryDetails: queryDetails, recommendatoin: recommendatoin };
         },

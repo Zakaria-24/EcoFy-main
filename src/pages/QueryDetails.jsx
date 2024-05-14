@@ -5,7 +5,7 @@ const QueryDetails = () => {
   // const { user } = useAuth();
   const navigate = useNavigate();
   const details = useLoaderData();
-  console.log([details]);
+  // console.log(details);
   const {
     name,
     photo,
@@ -16,14 +16,14 @@ const QueryDetails = () => {
     description,
     recommendationCount,
     dateTime,
-  } = [details];
-  
+  } = details.queryDetails;
+  // console.log(details.recommendatoin);
 
   return (
     <div className="container px-10 py-10 mx-auto">
       {/* details */}
       <>
-        <div className="flex items-center justify-center font-bold text-2xl mb-4">
+        <div className=" flex items-center justify-center font-bold text-2xl mb-4">
           <h1> View Query Details</h1>
           <p></p>
         </div>
@@ -106,56 +106,61 @@ const QueryDetails = () => {
         <RecommendationFormCard />
       </>
 
-      {/* All Recommendations for that particular query */}
+      {/* All Recommendations/comment for that particular query */}
       <>
         <div className="flex items-center justify-center font-bold text-2xl mt-16">
-          <h1>Read all Recommend</h1>
+          <h1>Read all Recommend: {details.recommendatoin?.length}</h1>
           <p></p>
         </div>
 
-        <div className=" mt-10 flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg  dark:bg-gray-50 dark:text-gray-800">
-          <div className="flex space-x-4">
-            <img
-              alt=""
-              src="https://source.unsplash.com/100x100/?portrait"
-              className="object-cover w-12 h-12 rounded-full shadow dark:bg-gray-500"
-            />
-            <div className="flex flex-col space-y-1">
-              <a
-                rel="noopener noreferrer"
-                href="#"
-                className="text-sm font-semibold"
+        <div className=" grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
+          {details.recommendatoin?.map((comment) => {
+            return (
+              <div
+                key={comment._id}
+                className=" mt-10 flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg  dark:bg-gray-50 dark:text-gray-800"
               >
-                Leroy Jenkins
-              </a>
-              <span className="text-xs dark:text-gray-600">4 hours ago</span>
-            </div>
-          </div>
-          {/* <div>
-		<img src="https://source.unsplash.com/random/100x100/?5" alt="" className="object-cover w-full mb-4 h-60 sm:h-96 dark:bg-gray-500" />
-		<h2 className="mb-1 text-xl font-semibold">Nam cu platonem posidonium sanctus debitis te</h2>
-		<p className="text-sm dark:text-gray-600">Eu qualisque aliquando mel, id lorem detraxit nec, ad elit minimum pri. Illum ipsum detracto ne cum. Mundi nemore te ius, vim ad illud atqui apeirian...</p>
-	</div> */}
+                <div className="flex space-x-4">
+                  <img
+                    alt=""
+                    src={comment?.recommenderPhoto}
+                    className="object-cover w-12 h-12 rounded-full shadow dark:bg-gray-500"
+                  />
+                  <div className="flex flex-col space-y-1">
+                    <a
+                      rel="noopener noreferrer"
+                      href="#"
+                      className="text-sm font-semibold"
+                    >
+                      {comment?.recommenderName}
+                    </a>
+                    <span className="text-xs dark:text-gray-600">
+                      {comment?.dateTime}
+                    </span>
+                  </div>
+                </div>
 
-          <div>
-            <img
-              src="https://source.unsplash.com/random/300x300/?1"
-              alt=""
-              className="object-cover object-center w-full rounded-md h-72 dark:bg-gray-500"
-            />
-            <div className="mt-6 mb-2">
-              <span className="block text-xs font-medium tracking-widest uppercase dark:text-violet-600">
+                <div>
+                  <img
+                    src={comment?.Recommended_Image_URL}
+                    alt=""
+                    className="object-cover object-center w-full rounded-md h-32 dark:bg-gray-500"
+                  />
+                  <div className="mt-6 mb-2">
+                    {/* <span className="block text-xs font-medium tracking-widest uppercase dark:text-violet-600">
                 Quisque
-              </span>
-              <h2 className="text-xl font-semibold tracking-wide">
-                Nam maximus purus
-              </h2>
-            </div>
-            <p className="dark:text-gray-800">
-              Mauris et lorem at elit tristique dignissim et ullamcorper elit.
-              In sed feugiat mi. Etiam ut lacinia dui.
-            </p>
-          </div>
+              </span> */}
+                    <h2 className="text-xl font-semibold tracking-wide">
+                      {comment?.Recommended_Name}
+                    </h2>
+                  </div>
+                  <p className="dark:text-gray-800">
+                    {comment?.Recommendation_Reason}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </>
     </div>

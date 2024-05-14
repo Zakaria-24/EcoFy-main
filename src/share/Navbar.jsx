@@ -43,6 +43,7 @@ const Navbar = () => {
 
       <div className="flex-none">
         <ul className="menu menu-horizontal">
+          <div className=" hidden md:flex ">
           <li className="hover:text-[#44ced5] border-2 border-[#44ced5] mr-2 rounded-lg">
             <label id="theme" className="swap swap-rotate">
               {/* this hidden checkbox controls the state */}
@@ -85,6 +86,7 @@ const Navbar = () => {
           <li className="hover:text-[#44ced5] border-2 text-xl border-[#44ced5] rounded-lg mr-1 font-bold hover:bg-base-300 block text-center">
             <Link to="/AllQueries">All Queries</Link>
           </li>
+          </div>
 
           {!user && (
             <>
@@ -119,6 +121,13 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#fbffff] rounded-box w-52"
             >
+ <li className=" sm:hidden hover:text-[#44ced5] border-2 border-[#44ced5] mb-1 mr-1 rounded-lg text-xl font-bold">
+            <Link to="/">Home</Link>
+          </li>
+          <li className=" sm:hidden hover:text-[#44ced5] border-2 text-xl border-[#44ced5] rounded-lg mb-1 mr-1 font-bold hover:bg-base-300 block text-center">
+            <Link to="/AllQueries">All Queries</Link>
+          </li>
+              
               <li className="hover:bg-[#9AD0D3] hover:text-black border-2 mb-1 border-[#44ced5] font-bold rounded-lg">
                 <Link to="/MyQueries">My Queries</Link>
               </li>
