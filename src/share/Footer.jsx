@@ -1,113 +1,133 @@
-
 const Footer = () => {
   return (
-    <footer className="bg-base-100 shadow-sm">
-      <hr />
-      <div className="container px-6 py-8 mx-auto">
-        <div className="flex flex-col items-center text-center">
-          <div className="flex gap-2 items-center">
-            <img className="w-auto h-7" src="https://i.ibb.co/KDG6hxK/EcoFy.png" alt="" />
-            <span className="font-bold">EcoFy</span>
+    <footer className="py-6 dark:bg-gray-100 dark:text-gray-900 border-t-2">
+      <div className="container px-6 mx-auto space-y-6 divide-y dark:divide-gray-600 md:space-y-12 divide-opacity-50">
+        <div className="grid grid-cols-12">
+          <div className="pb-6 col-span-full md:pb-0 md:col-span-6">
+            <a
+              rel="noopener noreferrer"
+              href="#"
+              className="flex justify-center space-x-3 md:justify-start"
+            >
+              <div className="flex items-center justify-center w-12 h-12 rounded-full dark:bg-violet-600">
+                <img
+                  className="w-auto h-7 rounded-md"
+                  src="https://i.ibb.co/KDG6hxK/EcoFy.png"
+                  alt=""
+                />
+              </div>
+              <span className="font-bold self-center text-2xl">EcoFy</span>
+            </a>
           </div>
-
-          <div className="flex flex-wrap justify-center mt-6 -mx-4">
-            <a
-              href="#"
-              className="mx-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 "
-              aria-label="Reddit"
-            >
-              {" "}
-              Home{" "}
-            </a>
-
-            <a
-              href="#"
-              className="mx-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 "
-              aria-label="Reddit"
-            >
-              {" "}
-              About{" "}
-            </a>
-
-            <a
-              href="#"
-              className="mx-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 "
-              aria-label="Reddit"
-            >
-              {" "}
-              Teams{" "}
-            </a>
-
-            <a
-              href="#"
-              className="mx-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 "
-              aria-label="Reddit"
-            >
-              {" "}
-              Privacy{" "}
-            </a>
-
-            <a
-              href="#"
-              className="mx-4 text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 "
-              aria-label="Reddit"
-            >
-              {" "}
-              Cookies{" "}
-            </a>
+          <div className="col-span-6 text-center md:text-left md:col-span-3">
+            <h3 className="tracking-wide uppercase dark:text-gray-900 pb-1 text-lg font-medium">
+              Product
+            </h3>
+            <ul className="space-y-1">
+              <li>
+                <a
+                  rel="noopener noreferrer"
+                  href="#"
+                  className="hover:dark:text-violet-600"
+                >
+                  Features
+                </a>
+              </li>
+              <li>
+                <a
+                  rel="noopener noreferrer"
+                  href="#"
+                  className="hover:dark:text-violet-600"
+                >
+                  Pricing
+                </a>
+              </li>
+              <li>
+                <a
+                  rel="noopener noreferrer"
+                  href="#"
+                  className="hover:dark:text-violet-600"
+                >
+                  FAQ
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div className="col-span-6 text-center md:text-left md:col-span-3">
+            <h3 className="tracking-wide uppercase dark:text-gray-900 pb-1 text-lg font-medium">
+              Company
+            </h3>
+            <ul className="space-y-1">
+              <li>
+                <a
+                  rel="noopener noreferrer"
+                  href="#"
+                  className="hover:dark:text-violet-600"
+                >
+                  Privacy
+                </a>
+              </li>
+              <li>
+                <a
+                  rel="noopener noreferrer"
+                  href="#"
+                  className="hover:dark:text-violet-600"
+                >
+                  Terms of Service
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
-
-        <hr className="my-6 border-gray-200 md:my-10 " />
-
-        <div className="flex flex-col items-center sm:flex-row sm:justify-between">
-          <p className="text-sm text-gray-500 ">
-            © Copyright 2021. All Rights Reserved.
-          </p>
-
-          <div className="flex -mx-2">
+        <div className="grid justify-center pt-6 lg:justify-between">
+          <div className="flex flex-col self-center text-sm text-center md:block lg:col-start-1 md:space-x-6">
+            <span>©2024 All rights reserved</span>
+          </div>
+          <div className="flex justify-center pt-4 space-x-4 lg:pt-0 lg:col-end-13">
             <a
+              rel="noopener noreferrer"
               href="#"
-              className="mx-2 text-gray-600 transition-colors duration-300 hover:text-blue-500 "
-              aria-label="Reddit"
+              title="Email"
+              className="flex items-center justify-center w-10 h-10 rounded-full dark:bg-violet-600 dark:text-gray-50"
             >
               <svg
-                className="w-5 h-5 fill-current"
-                viewBox="0 0 24 24"
-                fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="w-5 h-5"
               >
-                <path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C21.9939 17.5203 17.5203 21.9939 12 22ZM6.807 10.543C6.20862 10.5433 5.67102 10.9088 5.45054 11.465C5.23006 12.0213 5.37133 12.6558 5.807 13.066C5.92217 13.1751 6.05463 13.2643 6.199 13.33C6.18644 13.4761 6.18644 13.6229 6.199 13.769C6.199 16.009 8.814 17.831 12.028 17.831C15.242 17.831 17.858 16.009 17.858 13.769C17.8696 13.6229 17.8696 13.4761 17.858 13.33C18.4649 13.0351 18.786 12.3585 18.6305 11.7019C18.475 11.0453 17.8847 10.5844 17.21 10.593H17.157C16.7988 10.6062 16.458 10.7512 16.2 11C15.0625 10.2265 13.7252 9.79927 12.35 9.77L13 6.65L15.138 7.1C15.1931 7.60706 15.621 7.99141 16.131 7.992C16.1674 7.99196 16.2038 7.98995 16.24 7.986C16.7702 7.93278 17.1655 7.47314 17.1389 6.94094C17.1122 6.40873 16.6729 5.991 16.14 5.991C16.1022 5.99191 16.0645 5.99491 16.027 6C15.71 6.03367 15.4281 6.21641 15.268 6.492L12.82 6C12.7983 5.99535 12.7762 5.993 12.754 5.993C12.6094 5.99472 12.4851 6.09583 12.454 6.237L11.706 9.71C10.3138 9.7297 8.95795 10.157 7.806 10.939C7.53601 10.6839 7.17843 10.5422 6.807 10.543ZM12.18 16.524C12.124 16.524 12.067 16.524 12.011 16.524C11.955 16.524 11.898 16.524 11.842 16.524C11.0121 16.5208 10.2054 16.2497 9.542 15.751C9.49626 15.6958 9.47445 15.6246 9.4814 15.5533C9.48834 15.482 9.52348 15.4163 9.579 15.371C9.62737 15.3318 9.68771 15.3102 9.75 15.31C9.81233 15.31 9.87275 15.3315 9.921 15.371C10.4816 15.7818 11.159 16.0022 11.854 16C11.9027 16 11.9513 16 12 16C12.059 16 12.119 16 12.178 16C12.864 16.0011 13.5329 15.7863 14.09 15.386C14.1427 15.3322 14.2147 15.302 14.29 15.302C14.3653 15.302 14.4373 15.3322 14.49 15.386C14.5985 15.4981 14.5962 15.6767 14.485 15.786V15.746C13.8213 16.2481 13.0123 16.5208 12.18 16.523V16.524ZM14.307 14.08H14.291L14.299 14.041C13.8591 14.011 13.4994 13.6789 13.4343 13.2429C13.3691 12.8068 13.6162 12.3842 14.028 12.2269C14.4399 12.0697 14.9058 12.2202 15.1478 12.5887C15.3899 12.9572 15.3429 13.4445 15.035 13.76C14.856 13.9554 14.6059 14.0707 14.341 14.08H14.306H14.307ZM9.67 14C9.11772 14 8.67 13.5523 8.67 13C8.67 12.4477 9.11772 12 9.67 12C10.2223 12 10.67 12.4477 10.67 13C10.67 13.5523 10.2223 14 9.67 14Z"></path>
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
               </svg>
             </a>
-
             <a
+              rel="noopener noreferrer"
               href="#"
-              className="mx-2 text-gray-600 transition-colors duration-300 hover:text-blue-500 "
-              aria-label="Facebook"
+              title="Twitter"
+              className="flex items-center justify-center w-10 h-10 rounded-full dark:bg-violet-600 dark:text-gray-50"
             >
               <svg
-                className="w-5 h-5 fill-current"
-                viewBox="0 0 24 24"
-                fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 50 50"
+                fill="currentColor"
+                className="w-5 h-5"
               >
-                <path d="M2.00195 12.002C2.00312 16.9214 5.58036 21.1101 10.439 21.881V14.892H7.90195V12.002H10.442V9.80204C10.3284 8.75958 10.6845 7.72064 11.4136 6.96698C12.1427 6.21332 13.1693 5.82306 14.215 5.90204C14.9655 5.91417 15.7141 5.98101 16.455 6.10205V8.56104H15.191C14.7558 8.50405 14.3183 8.64777 14.0017 8.95171C13.6851 9.25566 13.5237 9.68693 13.563 10.124V12.002H16.334L15.891 14.893H13.563V21.881C18.8174 21.0506 22.502 16.2518 21.9475 10.9611C21.3929 5.67041 16.7932 1.73997 11.4808 2.01722C6.16831 2.29447 2.0028 6.68235 2.00195 12.002Z"></path>
+                <path d="M 50.0625 10.4375 C 48.214844 11.257813 46.234375 11.808594 44.152344 12.058594 C 46.277344 10.785156 47.910156 8.769531 48.675781 6.371094 C 46.691406 7.546875 44.484375 8.402344 42.144531 8.863281 C 40.269531 6.863281 37.597656 5.617188 34.640625 5.617188 C 28.960938 5.617188 24.355469 10.21875 24.355469 15.898438 C 24.355469 16.703125 24.449219 17.488281 24.625 18.242188 C 16.078125 17.8125 8.503906 13.71875 3.429688 7.496094 C 2.542969 9.019531 2.039063 10.785156 2.039063 12.667969 C 2.039063 16.234375 3.851563 19.382813 6.613281 21.230469 C 4.925781 21.175781 3.339844 20.710938 1.953125 19.941406 C 1.953125 19.984375 1.953125 20.027344 1.953125 20.070313 C 1.953125 25.054688 5.5 29.207031 10.199219 30.15625 C 9.339844 30.390625 8.429688 30.515625 7.492188 30.515625 C 6.828125 30.515625 6.183594 30.453125 5.554688 30.328125 C 6.867188 34.410156 10.664063 37.390625 15.160156 37.472656 C 11.644531 40.230469 7.210938 41.871094 2.390625 41.871094 C 1.558594 41.871094 0.742188 41.824219 -0.0585938 41.726563 C 4.488281 44.648438 9.894531 46.347656 15.703125 46.347656 C 34.617188 46.347656 44.960938 30.679688 44.960938 17.09375 C 44.960938 16.648438 44.949219 16.199219 44.933594 15.761719 C 46.941406 14.3125 48.683594 12.5 50.0625 10.4375 Z"></path>
               </svg>
             </a>
-
             <a
+              rel="noopener noreferrer"
               href="#"
-              className="mx-2 text-gray-600 transition-colors duration-300 hover:text-blue-500 "
-              aria-label="Github"
+              title="GitHub"
+              className="flex items-center justify-center w-10 h-10 rounded-full dark:bg-violet-600 dark:text-gray-50"
             >
               <svg
-                className="w-5 h-5 fill-current"
-                viewBox="0 0 24 24"
-                fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                className="w-5 h-5"
               >
-                <path d="M12.026 2C7.13295 1.99937 2.96183 5.54799 2.17842 10.3779C1.395 15.2079 4.23061 19.893 8.87302 21.439C9.37302 21.529 9.55202 21.222 9.55202 20.958C9.55202 20.721 9.54402 20.093 9.54102 19.258C6.76602 19.858 6.18002 17.92 6.18002 17.92C5.99733 17.317 5.60459 16.7993 5.07302 16.461C4.17302 15.842 5.14202 15.856 5.14202 15.856C5.78269 15.9438 6.34657 16.3235 6.66902 16.884C6.94195 17.3803 7.40177 17.747 7.94632 17.9026C8.49087 18.0583 9.07503 17.99 9.56902 17.713C9.61544 17.207 9.84055 16.7341 10.204 16.379C7.99002 16.128 5.66202 15.272 5.66202 11.449C5.64973 10.4602 6.01691 9.5043 6.68802 8.778C6.38437 7.91731 6.42013 6.97325 6.78802 6.138C6.78802 6.138 7.62502 5.869 9.53002 7.159C11.1639 6.71101 12.8882 6.71101 14.522 7.159C16.428 5.868 17.264 6.138 17.264 6.138C17.6336 6.97286 17.6694 7.91757 17.364 8.778C18.0376 9.50423 18.4045 10.4626 18.388 11.453C18.388 15.286 16.058 16.128 13.836 16.375C14.3153 16.8651 14.5612 17.5373 14.511 18.221C14.511 19.555 14.499 20.631 14.499 20.958C14.499 21.225 14.677 21.535 15.186 21.437C19.8265 19.8884 22.6591 15.203 21.874 10.3743C21.089 5.54565 16.9181 1.99888 12.026 2Z"></path>
+                <path d="M10.9,2.1c-4.6,0.5-8.3,4.2-8.8,8.7c-0.5,4.7,2.2,8.9,6.3,10.5C8.7,21.4,9,21.2,9,20.8v-1.6c0,0-0.4,0.1-0.9,0.1 c-1.4,0-2-1.2-2.1-1.9c-0.1-0.4-0.3-0.7-0.6-1C5.1,16.3,5,16.3,5,16.2C5,16,5.3,16,5.4,16c0.6,0,1.1,0.7,1.3,1c0.5,0.8,1.1,1,1.4,1 c0.4,0,0.7-0.1,0.9-0.2c0.1-0.7,0.4-1.4,1-1.8c-2.3-0.5-4-1.8-4-4c0-1.1,0.5-2.2,1.2-3C7.1,8.8,7,8.3,7,7.6C7,7.2,7,6.6,7.3,6 c0,0,1.4,0,2.8,1.3C10.6,7.1,11.3,7,12,7s1.4,0.1,2,0.3C15.3,6,16.8,6,16.8,6C17,6.6,17,7.2,17,7.6c0,0.8-0.1,1.2-0.2,1.4 c0.7,0.8,1.2,1.8,1.2,3c0,2.2-1.7,3.5-4,4c0.6,0.5,1,1.4,1,2.3v2.6c0,0.3,0.3,0.6,0.7,0.5c3.7-1.5,6.3-5.1,6.3-9.3 C22,6.1,16.9,1.4,10.9,2.1z"></path>
               </svg>
             </a>
           </div>
