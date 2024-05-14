@@ -70,8 +70,12 @@ const MyQueryCard = ({ myQuery, refetch }) => {
             alt=""
             className="object-cover w-full mb-4 h-full dark:bg-gray-500"
           />
-          <h2 className="mb-1 text-xl font-semibold">{query_title}</h2>
-          <p className="text-sm dark:text-gray-600">{description}</p>
+          <h2 className="mb-1 text-xl font-semibold">
+            <span className="text-xl font-bold">Query?:</span> {query_title}
+          </h2>
+          <p className="text-sm dark:text-gray-600">
+            <span className="text-xl font-bold">Reasons:</span> {description}
+          </p>
         </div>
         <div className="flex flex-wrap justify-between">
           <div className="space-x-2 flex items-center">

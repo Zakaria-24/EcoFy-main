@@ -1,32 +1,46 @@
 import AllQueriesCard from "../components/AllQueriesCard";
-import { useQuery } from "@tanstack/react-query";
+// import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import Loading from "./Loading";
-import { useState } from "react";
+// import Loading from "./Loading";
+import { useEffect, useState } from "react";
 
 const AllQueries = () => {
   const [search, setSearch] = useState("");
-  const baseUrl = import.meta.env.VITE_API_URL;
-  const { data: queries = [], isLoading } = useQuery({
-    queryKey: ["queryData"],
-    queryFn: () => getQueries(),
-  });
-  // console.log(queries, isLoading);
+const [ data, setData] = useState([]);
 
-  const getQueries = async () => {
-    // for search : ?.search=${search}
-    const { data } = await axios(`${baseUrl}/queries?&search=${search}`);
-    // console.log(data);
-    return data;
-  };
-  if (isLoading) return <Loading />;
+  const baseUrl = import.meta.env.VITE_API_URL;
+
+  useEffect(() => {
+    const getData = async () => {
+      const { data } = await axios(`${baseUrl}/queries?search=${search}`);
+      setData(data)
+    };
+    getData();
+  }, [baseUrl, search]);
+
+  console.log(data);
+
+
+
+  // const { data: queries = [], isLoading } = useQuery({
+  //   queryKey: ["queryData"],
+  //   queryFn: () => getQueries(),
+  // });
+  // // console.log(queries, isLoading);
+
+  // const getQueries = async () => {
+  //   // for search : ?.search=${search}
+  //   const { data } = await axios(`${baseUrl}/queries`);
+  //   // console.log(data);
+  //   return data;
+  // };
+  // if (isLoading) return <Loading />;
 
   // Search for queries by Product Name
   const handleSearch = (e) => {
     e.preventDefault();
     const text = e.target.search.value;
     setSearch(text);
-    
   };
 
   console.log(search);
@@ -49,6 +63,9 @@ const AllQueries = () => {
             </button>
           </div>
         </form>
+
+        <button className="btn btn-outline btn-accent mr-1">Grid_2</button>
+        <button className="btn btn-outline btn-accent">Grid_3</button>
       </div>
       {/* <div className="px-6  pt-10">
         <fieldset className="w-full space-y-1 dark:text-gray-800">
@@ -83,7 +100,7 @@ const AllQueries = () => {
       </div> */}
 
       <div className=" px-10 py-10 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {queries?.map((query) => {
+        {data?.map((query) => {
           return <AllQueriesCard key={query._id} query={query} />;
         })}
         {/* <AllQueriesCard /> */}
