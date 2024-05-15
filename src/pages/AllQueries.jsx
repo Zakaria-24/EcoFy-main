@@ -16,34 +16,17 @@ const AllQueries = () => {
   const baseUrl = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
+    const getData = async () => {
+      try {
+        const { data } = await axios(`${baseUrl}/queries?search=${search}`);
+        setData(data);
+      } catch (error) {
+        // console.error("Error fetching data:", error);
+      }
+    };
+    getData();
+  }, [baseUrl, search]);
 
-  const getData = async () => {
-    try {
-      const { data } = await axios(`${baseUrl}/queries?search=${search}`);
-      setData(data);
-    } catch (error) {
-      // console.error("Error fetching data:", error);
-    }
-  };
-  getData();
-}, [baseUrl, search]);
-
-  // console.log(data);
-
-
-  // const { data: queries = [], isLoading } = useQuery({
-  //   queryKey: ["queryData"],
-  //   queryFn: () => getQueries(),
-  // });
-  // // console.log(queries, isLoading);
-
-  // const getQueries = async () => {
-  //   // for search : ?.search=${search}
-  //   const { data } = await axios(`${baseUrl}/queries`);
-  //   // console.log(data);
-  //   return data;
-  // };
-  // if (isLoading) return <Loading />;
 
   // Search for queries by Product Name
   const handleSearch = (e) => {
@@ -51,52 +34,52 @@ const AllQueries = () => {
     const text = e.target.search.value;
     setSearch(text);
   };
-  // console.log(search);
 
-  // const handleGridLayout = (cols) => {
-  //   setGridCols(cols);
-  // };
-  
   if (loading) return <Loading />;
   return (
-    <div className=" my-8 px-10 md:px-16 lg:px-32">
-      <div className="px-10 md:flex justify-center items-center ">
-        <form onSubmit={handleSearch}>
-          <div className="flex p-1 overflow-hidden border rounded-lg    focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
-            <input
-              className=" text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent"
-              type="text"
-              name="search"
-              placeholder="Enter Product Name"
-              aria-label="Enter Product Name"
-            />
+    <>
+      <div className=" mt-8 px-2 md:px-16 lg:px-32">
+        <div className="px-6 m md:px-16  md:flex justify-center items-center">
+          <form onSubmit={handleSearch}>
+            <div className="flex p-1 overflow-hidden border rounded-lg    focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
+              <input
+                className=" text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent"
+                type="text"
+                name="search"
+                placeholder="Enter Product Name"
+                aria-label="Enter Product Name"
+              />
 
-            <button className=" px-1 md:px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none">
-              Search
-            </button>
-          </div>
-        </form>
+              <button className=" px-1 md:px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none">
+                Search
+              </button>
+            </div>
+          </form>
 
-        <button
-          onClick={() => setGridCols(2)}
-          className="btn btn-outline btn-accent mr-1 "
-        >
-          Columns_2
-        </button>
-        <button
-          onClick={() => setGridCols(3)}
-          className="btn btn-outline btn-accent"
-        >
-          Columns_3
-        </button>
+          <button
+            onClick={() => setGridCols(true)}
+            className="btn btn-outline btn-accent mr-1 "
+          >
+            Columns_2
+          </button>
+          <button
+            onClick={() => setGridCols(false)}
+            className="btn btn-outline btn-accent"
+          >
+            Columns_3
+          </button>
+        </div>
       </div>
-
-      <div   className= "grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-8 pb-10" >
-        {data.map((query) => {
-          return <AllQueriesCard key={query._id} query={query} />;
-        })}
+      <div
+        className={`container mx-auto px-4 mb-16 gap-8 grid ${
+          gridCols === true ? "md:grid-cols-2" : "md:grid-cols-3"
+        }`}
+      >
+        {data?.map((query) => (
+          <AllQueriesCard key={query._id} query={query} />
+        ))}
       </div>
-    </div>
+    </>
   );
 };
 

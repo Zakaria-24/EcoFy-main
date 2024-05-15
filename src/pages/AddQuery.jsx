@@ -36,21 +36,14 @@ const AddQuery = () => {
       photo: user?.photoURL,
       recommendationCount: 0,
     };
-    // console.log(qData);
-
-    try {
-      const { queryData } = await axios.post(
-        `${baseUrl}/query`,
-        qData,
-        // for secure my personal data by using token
-        { withcredentials: true }
-      );
-      console.log(queryData);
-      toast.success("Query Successfully!");
-      navigate("/MyQueries");
-    } catch (err) {
-      console.log(err);
-    }
+    
+    axios
+      .post(`${baseUrl}/query`, qData, { withCredentials: true })
+      .then((res) => {
+        console.log("token response", res.data);
+        toast.success("Query Added Successful!");
+        navigate("/myQueries");
+      });
   };
 
   return (

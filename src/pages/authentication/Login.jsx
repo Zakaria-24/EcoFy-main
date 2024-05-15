@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import toast from "react-hot-toast";
-import axios from 'axios'
+// import axios from 'axios'
 
 const Login = () => {
   const navigate = useNavigate();
@@ -16,15 +16,7 @@ const Login = () => {
       const result = await signInWithGoogle()
       console.log(result.user)
 
-      //2. get token from server using email
-      const { data } = await axios.post(
-        `${import.meta.env.VITE_API_URL}/jwt`,
-        {
-          email: result?.user?.email,
-        },
-        { withCredentials: true }
-      )
-      console.log(data)
+    
       toast.success("Google LogIn Successful");
       navigate("/");
     } catch (err) {
@@ -32,14 +24,7 @@ const Login = () => {
       toast.error(err?.message)
     }
 
-    // try {
-    //   await signInWithGoogle();
-    //   toast.success("Google LogIn Successful");
-    //   navigate("/");
-    // } catch (err) {
-    //   console.log(err);
-    //   toast.error(err?.message);
-    // }
+
   };
 
   // Email Password Signin
@@ -54,15 +39,7 @@ const Login = () => {
       const result = await signIn(email, pass);
       console.log(result.user)
 
-      //2. get token from server using email
-      const { data } = await axios.post(
-        `${import.meta.env.VITE_API_URL}/jwt`,
-        {
-          email: result?.user?.email,
-        },
-        { withCredentials: true }
-      )
-      console.log(data)
+      
       navigate("/");
       toast.success("LogIn Successful");
     } catch (err) {

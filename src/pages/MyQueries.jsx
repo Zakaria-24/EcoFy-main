@@ -24,9 +24,13 @@ const MyQueries = () => {
       // for secure my personal data by using token
       { withCredentials: true }
     );
-    // console.log(data);
+
+    refetch()
+    console.log(refetch)
     return data;
+    
   };
+
   if (isLoading) return <Loading />;
 
   return (

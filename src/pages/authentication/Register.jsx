@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import toast from "react-hot-toast";
-import axios from "axios";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -24,17 +23,6 @@ const Register = () => {
       await updateUserProfile(name, photo);
       setUser({ ...user, photoURL: photo, displayName: name });
 
-      console.log(result.user)
-
-      //2. get token from server using email
-      const { data } = await axios.post(
-        `${import.meta.env.VITE_API_URL}/jwt`,
-        {
-          email: result?.user?.email,
-        },
-        { withCredentials: true }
-      )
-      console.log(data)
 
       navigate("/");
       toast.success("Registration Successful");
@@ -50,16 +38,6 @@ const Register = () => {
       const result = await signInWithGoogle();
 
       console.log(result.user)
-
-      //2. get token from server using email
-      const { data } = await axios.post(
-        `${import.meta.env.VITE_API_URL}/jwt`,
-        {
-          email: result?.user?.email,
-        },
-        { withCredentials: true }
-      )
-      console.log(data)
 
       toast.success("Google LogIn Successful");
       navigate("/");

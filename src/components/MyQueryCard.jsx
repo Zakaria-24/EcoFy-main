@@ -16,11 +16,8 @@ const MyQueryCard = ({ myQuery, refetch }) => {
     name,
     photo,
   } = myQuery;
-  // console.log(myQuery);
-  // console.log(refetch);
 
   const handleDelete = async (id) => {
-    // console.log(id, "delete");
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -38,6 +35,7 @@ const MyQueryCard = ({ myQuery, refetch }) => {
           icon: "success",
         });
         refetch();
+        console.log(refetch);
       }
     });
   };
@@ -84,7 +82,6 @@ const MyQueryCard = ({ myQuery, refetch }) => {
               to={`/queryDetails/${myQuery._id}`}
               type="button"
               title="My Query Details"
-              // className="flex items-center justify-center"
               aria-label="Bookmark this post"
               className="p-2"
             >
@@ -95,7 +92,6 @@ const MyQueryCard = ({ myQuery, refetch }) => {
               to={`/updateMyQuery/${myQuery._id}`}
               type="button"
               title="Update My Query"
-              // className="flex items-center justify-center"
               aria-label="Bookmark this post"
               className="p-2"
             >
@@ -107,7 +103,6 @@ const MyQueryCard = ({ myQuery, refetch }) => {
               onClick={() => handleDelete(_id)}
               type="button"
               title="Delete My Query"
-              // className="flex items-center justify-center"
               aria-label="Bookmark this post"
               className="p-2"
             >
