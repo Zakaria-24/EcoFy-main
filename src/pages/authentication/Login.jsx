@@ -2,7 +2,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import toast from "react-hot-toast";
-// import axios from 'axios'
+
+import Lottie from "lottie-react";
+import loginLottie from "./oCwotGN9F8.json"
 
 const Login = () => {
   const navigate = useNavigate();
@@ -53,10 +55,14 @@ const Login = () => {
       <div className="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl ">
         <div
           className=" p-4 hidden bg-cover bg-center lg:block lg:w-1/2"
-          style={{
-            backgroundImage: `url("https://i.ibb.co/dB60hnG/Authentication-Logo.png")`,
-          }}
-        ></div>
+          // style={{
+          //   backgroundImage: `url("https://i.ibb.co/dB60hnG/Authentication-Logo.png")`,
+          // }}
+
+
+        >
+          <Lottie animationData={loginLottie}  />
+        </div>
 
         <div className="w-full px-6 py-8 md:px-8 lg:w-1/2">
           <div className="flex justify-center mx-auto">
@@ -144,7 +150,7 @@ const Login = () => {
             <div className="mt-6">
               <button
                 type="submit"
-                className="w-full px-6 py-3 text-sm font-bold tracking-wide text-black capitalize transition-colors duration-300 transform bg-[#9AD0D3] rounded-lg hover:bg-base-300-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
+                className="w-full px-6 py-3 text-sm font-bold tracking-wide text-black capitalize transition-colors duration-300 transform bg-[#9ad0d3] rounded-lg hover:bg-base-300-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
               >
                 Log In
               </button>

@@ -43,7 +43,6 @@ const Home = () => {
         </div>
       </>
 
-      {/* /2 Extra Section */}
       {/* section_1 */}
       <Section_1/>
 

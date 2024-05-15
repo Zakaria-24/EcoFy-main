@@ -1,14 +1,18 @@
+import Lottie from "lottie-react";
+import requentlyAskQuestion from "../ExtraSection/ukrghSwtTT.json"
+
 const Section_1 = () => {
   return (
-    <div className=" container mx-auto my-16 bg-sky-100">
+    <div className=" container mx-auto my-16 ">
       <section className="dark:bg-gray-100 dark:text-gray-800">
         <div className="container flex flex-col justify-center p-4 mx-auto md:p-8">
           <h2 className="mb-12 text-4xl font-bold leading-none text-center sm:text-5xl">
             Frequently Asked Questions
           </h2>
-          <div className="flex flex-col divide-y sm:px-8 lg:px-12 xl:px-32 dark:divide-gray-300">
+          <div className=" flex flex-col-reverse md:flex-row items-center  gap-6">
+          <div className=" flex-1 flex flex-col divide-y sm:px-8 lg:px-12 xl:px-32 dark:divide-gray-300">
             <details>
-              <summary className="py-2 font-bold outline-none cursor-pointer focus:underline">
+              <summary className="py-2 text-xl font-bold outline-none cursor-pointer focus:underline">
                 What is EcoFy?
               </summary>
               <div className="px-4 pb-4">
@@ -22,7 +26,7 @@ const Section_1 = () => {
               </div>
             </details>
             <details>
-              <summary className="py-2 font-bold outline-none cursor-pointer focus:underline">
+              <summary className=" text-xl py-2 font-bold outline-none cursor-pointer focus:underline">
                 How can I benefit from using a EcoFy?
               </summary>
               <div className="px-4 pb-4">
@@ -37,7 +41,7 @@ const Section_1 = () => {
               </div>
             </details>
             <details>
-              <summary className="py-2 font-bold outline-none cursor-pointer focus:underline">
+              <summary className=" text-xl py-2 font-bold outline-none cursor-pointer focus:underline">
                 Is my personal information safe on this website?
               </summary>
               <div className="px-4 pb-4 space-y-2">
@@ -51,7 +55,7 @@ const Section_1 = () => {
               </div>
             </details>
             <details>
-              <summary className="py-2 font-bold outline-none cursor-pointer focus:underline">
+              <summary className=" text-xl py-2 font-bold outline-none cursor-pointer focus:underline">
                 Are the recommendations on this website unbiased?
               </summary>
               <div className="px-4 pb-4 space-y-2">
@@ -66,7 +70,7 @@ const Section_1 = () => {
               </div>
             </details>
             <details>
-              <summary className="py-2 font-bold outline-none cursor-pointer focus:underline">
+              <summary className=" text-xl py-2 font-bold outline-none cursor-pointer focus:underline">
                 How can I contact customer support if I have further questions
                 or issues?
               </summary>
@@ -81,6 +85,10 @@ const Section_1 = () => {
                 </p>
               </div>
             </details>
+          </div>
+          <div className=" w-full flex-1 h-full">
+          <Lottie animationData={requentlyAskQuestion}  />
+          </div>
           </div>
         </div>
       </section>

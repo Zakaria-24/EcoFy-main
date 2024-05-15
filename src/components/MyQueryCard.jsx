@@ -42,7 +42,7 @@ const MyQueryCard = ({ myQuery, refetch }) => {
 
   return (
     <div>
-      <div className=" bg-sky-100 flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-50 dark:text-gray-800">
+      <div className=" bg-[#cde4e5] flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-50 dark:text-gray-800">
         <div className="flex space-x-4">
           <img
             alt=""
