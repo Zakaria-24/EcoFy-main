@@ -42,7 +42,7 @@ const MyQueryCard = ({ myQuery, refetch }) => {
 
   return (
     <div>
-      <div className=" bg-[#cde4e5] flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-50 dark:text-gray-800">
+      <div className=" bg-[#cde4e5] flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg  dark:bg-gray-50 dark:text-gray-800  shadow-2xl  transition border-2 hover:scale-105 ">
         <div className="flex space-x-4">
           <img
             alt=""
@@ -83,7 +83,7 @@ const MyQueryCard = ({ myQuery, refetch }) => {
               type="button"
               title="My Query Details"
               aria-label="Bookmark this post"
-              className="p-2"
+              className="p-2  shadow-2xl  transition border-2 hover:scale-105 bg-slate-300"
             >
               <TbListDetails />
             </Link>
@@ -93,7 +93,7 @@ const MyQueryCard = ({ myQuery, refetch }) => {
               type="button"
               title="Update My Query"
               aria-label="Bookmark this post"
-              className="p-2"
+              className="p-2 shadow-2xl  transition border-2 hover:scale-105 bg-slate-300"
             >
               <MdOutlineUpdate />
             </Link>
@@ -104,7 +104,7 @@ const MyQueryCard = ({ myQuery, refetch }) => {
               type="button"
               title="Delete My Query"
               aria-label="Bookmark this post"
-              className="p-2"
+              className="p-2 shadow-2xl  transition border-2 hover:scale-105 bg-slate-300"
             >
               <AiTwotoneDelete />
             </button>

@@ -24,7 +24,7 @@ const Banner = () => {
               to="/addQuery"
               href="#"
               rel="noreferrer noopener"
-              className="px-5 mt-4 lg:mt-0 py-3 rounded-md border block bg-sky-400 dark:bg-gray-900 dark:text-gray-50 dark:border-gray-600"
+              className="px-5 mt-4 lg:mt-0 py-3 rounded-md  block bg-sky-400 dark:bg-gray-900 dark:text-gray-50 dark:border-gray-600  shadow-2xl  transition border-2 hover:scale-105 "
             >
               Add Query
             </Link>

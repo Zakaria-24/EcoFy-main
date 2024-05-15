@@ -18,7 +18,7 @@ const AllQueriesCard = ({ query }) => {
 
   return (
     <>
-      <div className="rounded-md bg-[#cde4e5] shadow-lg dark:bg-gray-50 dark:text-gray-800">
+      <div className="rounded-md bg-[#cde4e5]  dark:bg-gray-50 dark:text-gray-800   shadow-2xl  transition border-2 hover:scale-105">
         <div className="flex items-center justify-between p-3">
           <div className="flex space-x-4">
             <img
