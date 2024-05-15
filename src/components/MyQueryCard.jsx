@@ -20,7 +20,7 @@ const MyQueryCard = ({ myQuery, refetch }) => {
   // console.log(refetch);
 
   const handleDelete = async (id) => {
-    console.log(id, "delete");
+    // console.log(id, "delete");
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",

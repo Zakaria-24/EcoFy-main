@@ -60,7 +60,7 @@ const RecommendationFormCard = ({queryId}) => {
       toast.success("Recommendation Successful!");
       navigate("/AllQueries");
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 

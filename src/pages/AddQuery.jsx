@@ -36,7 +36,7 @@ const AddQuery = () => {
       photo: user?.photoURL,
       recommendationCount: 0,
     };
-    console.log(qData);
+    // console.log(qData);
 
     try {
       const { queryData } = await axios.post(
