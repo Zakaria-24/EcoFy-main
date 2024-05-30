@@ -1,15 +1,13 @@
 import AllQueriesCard from "../components/AllQueriesCard";
-// import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Loading from "./Loading";
 import { useEffect, useState } from "react";
 import useAuth from "../hooks/useAuth";
 
-const AllQueries = () => {
+export const AllQueries = () => {
   const { loading } = useAuth();
   const [gridCols, setGridCols] = useState(3);
   // console.log(gridCols);
-
   const [itemsPerPage, setItemsPerPage] = useState(3);
   const [currentPage, setCurrentPage] = useState(1);
   const [count, setCount] = useState(0);
@@ -34,14 +32,8 @@ const AllQueries = () => {
 
   useEffect(() => {
     const getCount = async () => {
-      try {
-        const { data } = await axios(
-          `${baseUrl}/queries-count?search=${search}`
-        );
-        setCount(data.count);
-      } catch (error) {
-        // console.error(error);
-      }
+      const { data } = await axios(`${baseUrl}/queries-count?search=${search}`);
+      setCount(data.count);
     };
     getCount();
   }, [baseUrl, search]);
@@ -178,5 +170,3 @@ const AllQueries = () => {
     </>
   );
 };
-
-export default AllQueries;

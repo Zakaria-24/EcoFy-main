@@ -26,7 +26,7 @@ const MyQueries = () => {
     );
 
     refetch()
-    console.log(refetch)
+    // console.log(refetch)
     return data;
     
   };

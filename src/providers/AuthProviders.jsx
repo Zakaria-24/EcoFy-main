@@ -21,7 +21,7 @@ const AuthProvider = ({ children }) => {
   const baseUrl = import.meta.env.VITE_API_URL;
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-console.log(user)
+// console.log(user)
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
@@ -58,14 +58,14 @@ console.log(user)
         const userEmail = currentUser?.email || user?.email;
         const loggedUser = { email: userEmail };
         setUser(currentUser);
-        console.log('current user', currentUser);
+        // console.log('current user', currentUser);
         setLoading(false);
         // if user exists then issue a token
         if (currentUser) {
             axios.post(`${baseUrl}/jwt`, loggedUser, { withCredentials: true })
-                .then(res => {
-                    console.log('token response', res.data);
-                })
+                // .then(res => {
+                //     console.log('token response', res.data);
+                // })
         }
         else {
             axios.post(`${baseUrl}/logout`, loggedUser, {
@@ -79,7 +79,7 @@ console.log(user)
     return () => {
         return unsubscribe();
     }
-}, [])
+}, [baseUrl, user?.email])
 
   const authInfo = {
     user,
