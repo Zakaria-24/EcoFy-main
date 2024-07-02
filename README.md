@@ -4,11 +4,14 @@
 
 ## Important Link: [EcoFy-server](https://github.com/Zakaria-24/EcoFy-server)
 
-## Setup:
+## Project Setup:
    - First of all install all the dependencies in package.json file.
    - Create a .env.local file in the root of the project
      * in this file you have to create firebase auth variable
      * create a VITE_API_URL= "your localhost port link"
+   - and In the server site :
+      * build a connection on mongodb and set your unique DB_USER and DB_PASS code,
+      * create  ACCESS_TOKEN_SECRET= "to get token",
 
 ## ![image](https://github.com/Zakaria-24/EcoFy-main-Client-Server/assets/155288423/f0e74afb-1479-46bb-8db7-48386e90919b) Concepts/Overviews: 
 EcoFy empowers users to discover eco-friendly alternatives! Search for greener options, share experiences, recommend replacements, and see detailed reviews. Built with React and user-friendly features, EcoFy simplifies finding sustainable choices for everyday products.
