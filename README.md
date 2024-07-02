@@ -2,8 +2,7 @@
 
 ## Live Link: https://ecofy-dfbef.web.app
 
-### Important Link:
-- [EcoFy-server](https://github.com/Zakaria-24/EcoFy-server)
+### Important Link: [EcoFy-server](https://github.com/Zakaria-24/EcoFy-server)
 
 ## Key Features:
 - User Query Management: 
