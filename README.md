@@ -2,31 +2,46 @@
 
 ## Live Link: https://ecofy-dfbef.web.app
 
-### Important Link: [EcoFy-server](https://github.com/Zakaria-24/EcoFy-server)
+## Important Link: [EcoFy-server](https://github.com/Zakaria-24/EcoFy-server)
 
-## Key Features:
-- User Query Management: 
-    * Users can easily add, update, and delete their own queries about products in the system.
+## Setup:
+   - First of all install all the dependencies in package.json file.
+   - Create a .env.local file in the root of the project
+     * in this file you have to create firebase auth variable
+     * create a VITE_API_URL= "your localhost port link"
 
-- Comprehensive Product Details: 
-    * Users can view detailed information about alternative products, including descriptions, ratings, and user recommendations.
+## ![image](https://github.com/Zakaria-24/EcoFy-main-Client-Server/assets/155288423/f0e74afb-1479-46bb-8db7-48386e90919b) Concepts/Overviews: 
+EcoFy empowers users to discover eco-friendly alternatives! Search for greener options, share experiences, recommend replacements, and see detailed reviews. Built with React and user-friendly features, EcoFy simplifies finding sustainable choices for everyday products.
 
-- Recommendation System: 
-    * Users can add recommendations for certain products to help others discover new alternatives.
+## 🌟 Features & Highlights:
+- Query System:
+   * Users can post queries for alternative products and view responses.
+- Recommendations:
+  * Users can recommend products on others' queries and see recommendations on their own queries.
+- Product Details:
+  * Comprehensive product details available for each item.
+- FAQs & Reviews:
+  * Frequently asked questions section and personal reviews from customers.
+- Search & Layout Customization:
+  * Search products by name and toggle between different grid layouts.
+- Interactive Animations:
+  * Smooth and engaging animations for an enhanced user experience.
+  * 
+This project has been a fantastic opportunity to harness and implement various technologies, aiming to provide a seamless and enriching experience for users.
 
-- Interactive User Interaction: 
-    * Users can engage with the platform by adding, modifying, or deleting their comments and recommendations.
+Check out EcoFy for a greener choice! 🌱
 
-- Search Functionality: 
-    * Alternify provides a robust search feature, allowing users to quickly find alternative products by entering keywords or specific product names.
+## 🔧 Key Technologies Used:
+- Frontend:
+     * React, Daisy UI, Swiper JS, AOS Animation
+- Backend:
+     * Node.js, Express.js, MongoDB
+- Authentication & Hosting:
+     * Firebase, Vercel, Netlify
+-  Authorization:
+     * JSON Web Token (JWT)
+- Data Handling:
+     * React Hook Form, TanStack Query, AXIOS
+- Media:
+     * Canva, IMGBB
 
-- Personalized Recommendations: 
-    * The platform offers personalized recommendations based on users' search history, preferences, and previous interactions.
-
-- Data Security Policy: 
-    * User's personalized data is more and more secure.
-
-- User-Friendly Interface: 
-    * Alternify offers an intuitive and easy-to-use interface for seamless navigation and interaction.
-
-# Assignment_ID: assignment_category_0009 
